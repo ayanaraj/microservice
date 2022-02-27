@@ -1,0 +1,39 @@
+server:
+    port: 6000
+    servlet:
+        context-path: /api
+
+spring:
+    datasource:
+        username: sa
+        password: password
+        url: jdbc:h2:mem:menu_micro
+        driverClassName: org.h2.Driver
+    application:
+        name: menu-service
+
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: update
+    h2:
+        console:
+            enabled: true
+            path: /database
+
+
+logging:
+  level:
+    root: INFO
+    '[org.hibernate.SQL]': DEBUG
+    '[org.hibernate.type]': TRACE
+
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+
